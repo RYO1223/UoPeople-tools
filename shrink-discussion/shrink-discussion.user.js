@@ -29,18 +29,18 @@
       }
     }
 
-    function toggleButton(element, to) {
+    function toggleButton(element, text, to) {
       if (to === 'shrink') {
         element.innerText = 'Shrink';
         element.onclick = () => {
-          toggleArticleVisibility(el, 'shrink');
+          toggleArticleVisibility(text, 'shrink');
           toggleButton(element, 'expand');
         };
         return;
       } else if (to === 'expand') {
         element.innerText = 'Expand';
         element.onclick = () => {
-          toggleArticleVisibility(el, 'expand');
+          toggleArticleVisibility(text, 'expand');
           toggleButton(element, 'shrink');
         };
         return;
@@ -53,7 +53,7 @@
       toggleArticleVisibility(el, 'shrink');
 
       let button = document.createElement('button');
-      toggleButton(button, 'expand');
+      toggleButton(button, el, 'expand');
 
       el.after(button);
     });
