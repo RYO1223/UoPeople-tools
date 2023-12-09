@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Shrink Discussion
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/RYO1223/UoPeople-tools
 // @version      1.0
-// @description  Adjust text under class "text_to_html" to three lines and add zoom in/out buttons
+// @description  Shrink discussion posts to 3 lines and add a button to expand/shrink them if needed.
 // @author       RYO1223
+// @updateURL    https://github.com/RYO1223/UoPeople-tools/raw/main/shrink-discussion/shrink-discussion.user.js
+// @downloadURL  https://github.com/RYO1223/UoPeople-tools/raw/main/shrink-discussion/shrink-discussion.user.js
 // @match        https://my.uopeople.edu/mod/forum/discuss.php*
 // @grant        none
 // ==/UserScript==
