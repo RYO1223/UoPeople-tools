@@ -11,36 +11,51 @@
 (() => {
   'use strict';
 
-  window.addEventListener('load', function () {
+  window.addEventListener('load', () => {
 
-    // Function to toggle text size
-    function toggleTextSize(element, isZoomIn) {
-      let currentSize = parseInt(window.getComputedStyle(element).fontSize);
-      element.style.fontSize = isZoomIn ? `${currentSize + 2}px` : `${currentSize - 2}px`;
+    function toggleArticleVisibility(element, action) {
+      if (action === 'shrink') {
+        element.style.display = '-webkit-box';
+        element.style.webkitLineClamp = '3';
+        element.style.webkitBoxOrient = 'vertical';
+        element.style.overflow = 'hidden';
+        return;
+      } else if (action === 'expand') {
+        element.style.display = 'block';
+        element.style.webkitLineClamp = 'unset';
+        element.style.webkitBoxOrient = 'unset';
+        element.style.overflow = 'unset';
+        return;
+      }
     }
 
-    // Find elements with class 'text_to_html'
+    function toggleButton(element, to) {
+      if (to === 'shrink') {
+        element.innerText = 'Shrink';
+        element.onclick = () => {
+          toggleArticleVisibility(el, 'shrink');
+          toggleButton(element, 'expand');
+        };
+        return;
+      } else if (to === 'expand') {
+        element.innerText = 'Expand';
+        element.onclick = () => {
+          toggleArticleVisibility(el, 'expand');
+          toggleButton(element, 'shrink');
+        };
+        return;
+      }
+    }
+
     let textElements = document.querySelectorAll('.text_to_html');
 
     textElements.forEach(el => {
-      // Limit to 3 lines
-      el.style.display = '-webkit-box';
-      el.style.webkitLineClamp = '3';
-      el.style.webkitBoxOrient = 'vertical';
-      el.style.overflow = 'hidden';
+      toggleArticleVisibility(el, 'shrink');
 
-      // Create zoom in and zoom out buttons
-      let zoomInButton = document.createElement('button');
-      zoomInButton.innerText = 'Zoom In';
-      zoomInButton.onclick = () => toggleTextSize(el, true);
+      let button = document.createElement('button');
+      toggleButton(button, 'expand');
 
-      let zoomOutButton = document.createElement('button');
-      zoomOutButton.innerText = 'Zoom Out';
-      zoomOutButton.onclick = () => toggleTextSize(el, false);
-
-      // Add buttons after the element
-      el.after(zoomOutButton);
-      el.after(zoomInButton);
+      el.after(button);
     });
   });
 })();
