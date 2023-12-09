@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Adjust text under class "text_to_html" to three lines and add zoom in/out buttons
 // @author       RYO1223
-// @match        https://my.uopeople.edu/mod/forum/discuss.php
+// @match        https://my.uopeople.edu/mod/forum/discuss.php*
 // @grant        none
 // ==/UserScript==
 
