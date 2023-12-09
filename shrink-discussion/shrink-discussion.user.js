@@ -34,14 +34,14 @@
         element.innerText = 'Shrink';
         element.onclick = () => {
           toggleArticleVisibility(text, 'shrink');
-          toggleButton(element, 'expand');
+          toggleButton(element, text, 'expand');
         };
         return;
       } else if (to === 'expand') {
         element.innerText = 'Expand';
         element.onclick = () => {
           toggleArticleVisibility(text, 'expand');
-          toggleButton(element, 'shrink');
+          toggleButton(element, text, 'shrink');
         };
         return;
       }
