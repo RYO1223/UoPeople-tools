@@ -1,5 +1,7 @@
 # UoPeople-tools
 
+Any opinions are welcome! Please create issues😆
+
 ## shrink-discussion
 
 A Tampermokey script that shrinks discussion forum posts.
