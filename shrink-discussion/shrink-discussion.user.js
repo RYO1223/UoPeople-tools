@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Shrink Discussion
 // @namespace    https://github.com/RYO1223/UoPeople-tools
-// @version      1.0
+// @version      1.1
 // @description  Shrink discussion posts to 3 lines and add a button to expand/shrink them if needed.
 // @author       RYO1223
 // @updateURL    https://github.com/RYO1223/UoPeople-tools/raw/main/shrink-discussion/shrink-discussion.user.js
@@ -49,7 +49,7 @@
       }
     }
 
-    let textElements = document.querySelectorAll('.text_to_html');
+    let textElements = document.querySelectorAll('.post-content-container');
 
     textElements.forEach(el => {
       toggleArticleVisibility(el, 'shrink');
